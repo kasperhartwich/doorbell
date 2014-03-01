@@ -54,5 +54,64 @@
             "routing",
             "sinatra"
         ]
+    },
+    {
+        "name": "ronanguilloux/php-gpio",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ronanguilloux/php-gpio.git",
+            "reference": "2ab29290e0fd45992103062bc949c8e18f622a20"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ronanguilloux/php-gpio/zipball/2ab29290e0fd45992103062bc949c8e18f622a20",
+            "reference": "2ab29290e0fd45992103062bc949c8e18f622a20",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2013-07-24 22:34:06",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "PhpGpio": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Ronan Guilloux",
+                "email": "ronan.guilloux@gmail.com",
+                "homepage": "http://github.com/ronanguilloux",
+                "role": "Developer"
+            }
+        ],
+        "description": "GPIO-related utils & toolkit PHP library",
+        "homepage": "https://github.com/ronanguilloux/php-gpio",
+        "keywords": [
+            "GPIO",
+            "chip",
+            "chipset",
+            "hardware",
+            "input",
+            "output",
+            "pin",
+            "port",
+            "raspberry",
+            "raspberry pi",
+            "sensors"
+        ]
     }
 ]

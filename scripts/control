@@ -1,0 +1,40 @@
+#!/usr/bin/env php
+<?php
+require_once(dirname(__FILE__) . '/../bootstrap.php');
+
+var_dump($config);
+
+use PhpGpio\Gpio;
+
+echo "Setting up pin 18\n";
+$gpio = new GPIO();
+$gpio->setup(18, "in");
+
+$ringing = false;
+
+if ($config['sms']['enabled']) { $cpsms = new CPSMS($config['sms']['username'], $config['sms']['password']); }
+
+while(true) {
+    $doorbell = (int)$gpio->input(18);
+    if ($doorbell && !$ringing) {
+        $ringing = microtime(true);
+    }
+    if ($ringing && !$doorbell) {
+        $time = microtime(true) - $ringing;
+        echo "Det ringede i " . $time . " d. " . date('c', $ringing) ."\n";
+
+    //SMS
+    if ($config['sms']['enabled']) {
+        foreach ($config['sms']['recipients'] as $recipient) {
+            $cpsms->send("Ring ring!", $recipient, $sender = $config['sms']['sender'] ?: false);
+            echo "SMS sendt til " . $recipient . "\n";
+        }
+    }
+
+    $ringing = false;
+    }
+    usleep(500);
+}
+
+echo "Unexporting all pins\n";
+$gpio->unexportAll();

@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "8a7e662138c30c3dc970ef0841788da4",
+    "hash": "1242958e9334e62e9cdfeda4c71e686d",
     "packages": [
         {
             "name": "klein/klein",
@@ -58,6 +58,63 @@
                 "sinatra"
             ],
             "time": "2013-06-16 23:32:47"
+        },
+        {
+            "name": "ronanguilloux/php-gpio",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ronanguilloux/php-gpio.git",
+                "reference": "2ab29290e0fd45992103062bc949c8e18f622a20"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ronanguilloux/php-gpio/zipball/2ab29290e0fd45992103062bc949c8e18f622a20",
+                "reference": "2ab29290e0fd45992103062bc949c8e18f622a20",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "PhpGpio": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ronan Guilloux",
+                    "email": "ronan.guilloux@gmail.com",
+                    "homepage": "http://github.com/ronanguilloux",
+                    "role": "Developer"
+                }
+            ],
+            "description": "GPIO-related utils & toolkit PHP library",
+            "homepage": "https://github.com/ronanguilloux/php-gpio",
+            "keywords": [
+                "GPIO",
+                "chip",
+                "chipset",
+                "hardware",
+                "input",
+                "output",
+                "pin",
+                "port",
+                "raspberry",
+                "raspberry pi",
+                "sensors"
+            ],
+            "time": "2013-07-24 22:34:06"
         }
     ],
     "packages-dev": [
@@ -67,9 +124,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "ronanguilloux/php-gpio": 20
+    },
     "platform": [
 
     ],

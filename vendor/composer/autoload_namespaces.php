@@ -6,5 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'PhpGpio' => array($vendorDir . '/ronanguilloux/php-gpio/src'),
     'Klein' => array($vendorDir . '/klein/klein'),
 );
