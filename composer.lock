@@ -3,8 +3,52 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "1242958e9334e62e9cdfeda4c71e686d",
+    "hash": "07b8be2d5fdb43f997663e358165a1ee",
     "packages": [
+        {
+            "name": "kasperhartwich/cpsms",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kasperhartwich/cpsms.git",
+                "reference": "d7d9a72f4fdba9eb9da1fdd32bb324406f4a956a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kasperhartwich/cpsms/zipball/d7d9a72f4fdba9eb9da1fdd32bb324406f4a956a",
+                "reference": "d7d9a72f4fdba9eb9da1fdd32bb324406f4a956a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kasper Hartwich",
+                    "email": "kasperhartwich@gmail.com",
+                    "homepage": "http://kasperhartwich.dk",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Send a sms via smsprovider http://www.cpsms.dk",
+            "homepage": "https://github.com/kasperhartwich/cpsms",
+            "keywords": [
+                "compaya",
+                "cpsms",
+                "sms"
+            ],
+            "time": "2014-03-01 21:57:32"
+        },
         {
             "name": "klein/klein",
             "version": "v2.0.2",
@@ -125,7 +169,8 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "ronanguilloux/php-gpio": 20
+        "ronanguilloux/php-gpio": 20,
+        "kasperhartwich/cpsms": 20
     },
     "platform": [
 

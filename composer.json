@@ -1,6 +1,7 @@
 {
     "require": {
         "klein/klein": "2.0.x",
-        "ronanguilloux/php-gpio": "dev-master"
+        "ronanguilloux/php-gpio": "dev-master",
+        "kasperhartwich/cpsms": "dev-master"
     }
 }

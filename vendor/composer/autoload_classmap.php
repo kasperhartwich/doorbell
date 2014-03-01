@@ -6,4 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'CPSMS' => $vendorDir . '/kasperhartwich/cpsms/lib/CPSMS.php',
 );

@@ -2,28 +2,39 @@
 <?php
 require_once(dirname(__FILE__) . '/../bootstrap.php');
 
-var_dump($config);
-
 use PhpGpio\Gpio;
 
-echo "Setting up pin 18\n";
+echo "Reading input\n";
 $gpio = new GPIO();
-$gpio->setup(18, "in");
+$gpio->setup((int)$config['gpio']['pin'], "in");
 
-$ringing = false;
+$ringed_at = false;
+
+if ($config['database']) {
+    $db = new PDO($config['database']['dsn'], $config['database']['username'], $config['database']['password']);
+ }
 
 if ($config['sms']['enabled']) { $cpsms = new CPSMS($config['sms']['username'], $config['sms']['password']); }
 
-while(true) {
-    $doorbell = (int)$gpio->input(18);
-    if ($doorbell && !$ringing) {
-        $ringing = microtime(true);
-    }
-    if ($ringing && !$doorbell) {
-        $time = microtime(true) - $ringing;
-        echo "Det ringede i " . $time . " d. " . date('c', $ringing) ."\n";
+//Cleanup function
+function cleanup() {
+    $gpio->unexportAll();
+    $db = null;
+}
+#register_shutdown_function('cleanup');
 
-    //SMS
+//Begin loop
+while(true) {
+
+    $doorbell = (int)$gpio->input((int)$config['gpio']['pin']);
+    if ($doorbell && !$ringed_at) {
+        $ringed_at = microtime(true);
+    }
+    if ($ringed_at && !$doorbell) {
+        $ringtime = microtime(true) - $ringed_at;
+        echo "Det ringede i " . $ringtime . " d. " . date('c', $ringed_at) ."\n";
+
+    //SMS - TODO: Only sms if it's >1-2 min since last ring.
     if ($config['sms']['enabled']) {
         foreach ($config['sms']['recipients'] as $recipient) {
             $cpsms->send("Ring ring!", $recipient, $sender = $config['sms']['sender'] ?: false);
@@ -31,10 +42,15 @@ while(true) {
         }
     }
 
-    $ringing = false;
+    //Save to database
+    if ($db) {
+        $stmt = $db->prepare("INSERT INTO rings (ringed_at, ringtime) VALUES (:ringed_at, :ringtime)");
+        $stmt->bindParam(':ringed_at', date('c', $ringed_at));
+        $stmt->bindParam(':ringtime', $ringtime);
+        $stmt->execute();    
     }
-    usleep(500);
-}
 
-echo "Unexporting all pins\n";
-$gpio->unexportAll();
+    $ringed_at = false;
+    }
+    usleep(100);
+}
