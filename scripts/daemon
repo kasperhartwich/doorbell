@@ -1,0 +1,51 @@
+#!/usr/bin/env php
+<?php
+require_once(dirname(__FILE__) . '/../bootstrap.php');
+
+use PhpGpio\Gpio;
+
+echo "Reading input\n";
+$gpio = new GPIO();
+$gpio->setup((int)$GLOBALS['config']['gpio']['pin'], "in");
+
+$ringed_at = false;
+
+if ($GLOBALS['config']['sms']['enabled']) { $cpsms = new CPSMS($GLOBALS['config']['sms']['username'], $GLOBALS['config']['sms']['password']); }
+
+//Cleanup function
+function cleanup() {
+    $gpio->unexportAll();
+    $db = null;
+}
+#register_shutdown_function('cleanup');
+
+//Begin loop
+while(true) {
+
+    $doorbell = (int)$gpio->input((int)$GLOBALS['config']['gpio']['pin']);
+    if ($doorbell && !$ringed_at) {
+        if ($GLOBALS['config']['soundfile']) { play_sound($GLOBALS['config']['soundfile']); }
+        $ringed_at = microtime(true);
+    }
+    if ($ringed_at && !$doorbell) {
+        $ringtime = microtime(true) - $ringed_at;
+        echo "Det ringede i " . $ringtime . " d. " . date('c', $ringed_at) ."\n";
+
+        //SMS - TODO: Only sms if it's >1-2 min since last ring.
+        if ($GLOBALS['config']['sms']['enabled']) {
+            foreach ($GLOBALS['config']['sms']['recipients'] as $recipient) {
+                $cpsms->send("Ring ring!", $recipient, $sender = $GLOBALS['config']['sms']['sender'] ?: false);
+                echo "SMS sendt til " . $recipient . "\n";
+            }
+        }
+
+        //Save to database
+        $stmt = $app->db->prepare("INSERT INTO rings (ringed_at, ringtime) VALUES (:ringed_at, :ringtime)");
+        $stmt->bindParam(':ringed_at', date('c', $ringed_at));
+        $stmt->bindParam(':ringtime', $ringtime);
+        $stmt->execute();    
+
+        $ringed_at = false;
+    }
+    usleep(100);
+}

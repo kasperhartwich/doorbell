@@ -2,6 +2,8 @@
     "require": {
         "klein/klein": "2.0.x",
         "ronanguilloux/php-gpio": "dev-master",
-        "kasperhartwich/cpsms": "dev-master"
+        "troelskn/pdoext": "dev-master",
+        "kasperhartwich/cpsms": "dev-master",
+        "kasperh/ipcamera": "dev-master"
     }
 }

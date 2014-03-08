@@ -3,8 +3,54 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "07b8be2d5fdb43f997663e358165a1ee",
+    "hash": "03696a74e4a938c656a331fbff1be8bb",
     "packages": [
+        {
+            "name": "kasperh/ipcamera",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kasperhartwich/ipcamera.git",
+                "reference": "3348951545432d0099dfc9d7ea56d978028a4bd7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kasperhartwich/ipcamera/zipball/3348951545432d0099dfc9d7ea56d978028a4bd7",
+                "reference": "3348951545432d0099dfc9d7ea56d978028a4bd7",
+                "shasum": ""
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kasper Hartwich",
+                    "email": "kasperhartwich@gmail.com",
+                    "homepage": "http://kasperhartwich.dk",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Use to integrate with IP cameras like Wanscam, Foscam, ezCam, Bestcam and alike",
+            "homepage": "http://github.com/kasperhartwich/php-gratisdns",
+            "keywords": [
+                "bestcam",
+                "ezcam",
+                "foscam",
+                "ipcamera",
+                "wanscam"
+            ],
+            "time": "2014-03-08 20:00:18"
+        },
         {
             "name": "kasperhartwich/cpsms",
             "version": "dev-master",
@@ -159,6 +205,36 @@
                 "sensors"
             ],
             "time": "2013-07-24 22:34:06"
+        },
+        {
+            "name": "troelskn/pdoext",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/troelskn/pdoext.git",
+                "reference": "e88f3c2d43915de273a56247088610e681957117"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/troelskn/pdoext/zipball/e88f3c2d43915de273a56247088610e681957117",
+                "reference": "e88f3c2d43915de273a56247088610e681957117",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Simple, yet powerful, ORM for PHP, based on PDO",
+            "homepage": "http://github.com/troelskn/pdoext",
+            "keywords": [
+                "orm",
+                "pdo",
+                "pdoext"
+            ],
+            "time": "2014-02-14 14:47:52"
         }
     ],
     "packages-dev": [
@@ -170,7 +246,9 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "ronanguilloux/php-gpio": 20,
-        "kasperhartwich/cpsms": 20
+        "troelskn/pdoext": 20,
+        "kasperhartwich/cpsms": 20,
+        "kasperh/ipcamera": 20
     },
     "platform": [
 

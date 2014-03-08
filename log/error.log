@@ -1,0 +1,2 @@
+[07-Mar-2014 15:02:58 UTC] PHP Fatal error:  Call to undefined function pdoext_fetch_assoc_safe() in /home/doorbell/doorbell/vendor/troelskn/pdoext/lib/pdoext/tablegateway.inc.php on line 741
+[07-Mar-2014 15:09:51 UTC] PHP Notice:  Undefined variable: page in /home/doorbell/doorbell/views/list.php on line 45

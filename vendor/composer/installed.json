@@ -159,5 +159,85 @@
             "cpsms",
             "sms"
         ]
+    },
+    {
+        "name": "troelskn/pdoext",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/troelskn/pdoext.git",
+            "reference": "e88f3c2d43915de273a56247088610e681957117"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/troelskn/pdoext/zipball/e88f3c2d43915de273a56247088610e681957117",
+            "reference": "e88f3c2d43915de273a56247088610e681957117",
+            "shasum": ""
+        },
+        "time": "2014-02-14 14:47:52",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "classmap": [
+                "lib/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "description": "Simple, yet powerful, ORM for PHP, based on PDO",
+        "homepage": "http://github.com/troelskn/pdoext",
+        "keywords": [
+            "orm",
+            "pdo",
+            "pdoext"
+        ]
+    },
+    {
+        "name": "kasperh/ipcamera",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kasperhartwich/ipcamera.git",
+            "reference": "3348951545432d0099dfc9d7ea56d978028a4bd7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kasperhartwich/ipcamera/zipball/3348951545432d0099dfc9d7ea56d978028a4bd7",
+            "reference": "3348951545432d0099dfc9d7ea56d978028a4bd7",
+            "shasum": ""
+        },
+        "suggest": {
+            "ext-curl": "*"
+        },
+        "time": "2014-03-08 20:00:18",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "classmap": [
+                "lib/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kasper Hartwich",
+                "email": "kasperhartwich@gmail.com",
+                "homepage": "http://kasperhartwich.dk",
+                "role": "Developer"
+            }
+        ],
+        "description": "Use to integrate with IP cameras like Wanscam, Foscam, ezCam, Bestcam and alike",
+        "homepage": "http://github.com/kasperhartwich/php-gratisdns",
+        "keywords": [
+            "bestcam",
+            "ezcam",
+            "foscam",
+            "ipcamera",
+            "wanscam"
+        ]
     }
 ]
