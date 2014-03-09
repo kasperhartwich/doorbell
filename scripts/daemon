@@ -24,12 +24,8 @@ while(true) {
 
     $doorbell = (int)$gpio->input((int)$GLOBALS['config']['gpio']['pin']);
     if ($doorbell && !$ringed_at) {
+        //Play soundfile
         if ($GLOBALS['config']['soundfile']) { play_sound($GLOBALS['config']['soundfile']); }
-        $ringed_at = microtime(true);
-    }
-    if ($ringed_at && !$doorbell) {
-        $ringtime = microtime(true) - $ringed_at;
-        echo "Det ringede i " . $ringtime . " d. " . date('c', $ringed_at) ."\n";
 
         //SMS - TODO: Only sms if it's >1-2 min since last ring.
         if ($GLOBALS['config']['sms']['enabled']) {
@@ -39,11 +35,17 @@ while(true) {
             }
         }
 
+        $ringed_at = microtime(true);
+    }
+    if ($ringed_at && !$doorbell) {
+        $ringtime = microtime(true) - $ringed_at;
+        echo "Det ringede i " . $ringtime . " d. " . date('c', $ringed_at) ."\n";
+
         //Save to database
         $stmt = $app->db->prepare("INSERT INTO rings (ringed_at, ringtime) VALUES (:ringed_at, :ringtime)");
         $stmt->bindParam(':ringed_at', date('c', $ringed_at));
         $stmt->bindParam(':ringtime', $ringtime);
-        $stmt->execute();    
+        $stmt->execute();
 
         $ringed_at = false;
     }
