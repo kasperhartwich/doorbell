@@ -5,5 +5,12 @@
         "troelskn/pdoext": "dev-master",
         "kasperhartwich/cpsms": "dev-master",
         "kasperh/ipcamera": "dev-master"
-    }
+        "kasperhartwich/sonos": "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "git@github.com:kasperhartwich/sonos.git"
+        }
+    ]
 }
