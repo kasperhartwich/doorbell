@@ -22,6 +22,7 @@
                 <th>ID</th>
                 <th>Ringed at</th>
                 <th>Ringtime</th>
+                <th>Image</th>
             </tr>
             <?php
             foreach($this->rings as $ring) {
@@ -29,6 +30,7 @@
             echo '<td>' . $ring['id'] . '</td>';
             echo '<td>' . date('d/m-Y H:i:s', strtotime($ring['ringed_at'])) . '</td>';
             echo '<td>' . $ring['ringtime'] . ' sec.</td>';
+            echo '<td><a href="/webcam/' . $ring['image'] . '"><img src="/webcam/' . $ring['image'] . '" border="0" height="80"></a></td>';
             echo '</tr>';
             }
             ?>

@@ -27,6 +27,7 @@ class Doorbell {
 
     function loop() {
         echo "Reading input\n";
+        file_put_contents('/tmp/doorbell-daemon', date('c'));
         while(true) {
             $this->ringed_status = (int)$this->gpio->input($this->pin);
             if ($this->ringed_status && !$this->ringed_at) {
@@ -42,7 +43,7 @@ class Doorbell {
 
     function ring() {
         //Play soundfile
-        if ($GLOBALS['config']['soundfile']) { play_sound($GLOBALS['config']['soundfile']); }
+        if ($GLOBALS['config']['soundfile']) { $this->playSound($GLOBALS['config']['soundfile']); }
 
         $this->image = $this->saveWebcam();
 
@@ -70,7 +71,7 @@ class Doorbell {
     function test() {
         sleep(2);
         $this->ring();
-        sleep(1);
+        usleep(100);
         $this->ringed();
     }
 
@@ -79,6 +80,10 @@ class Doorbell {
         $image = $this->ipcamera->snapshot();
         file_put_contents(__DIR__ . '/../public/webcam/' . $filename, $image);
         return $filename;
+    }
+
+    function playSound($sound_file = 'friedland.mp3') {
+        exec('omxplayer ' . __DIR__ . '/../sounds/' . $sound_file . '  > /dev/null &');
     }
 
     function __destruct() {
