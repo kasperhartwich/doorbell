@@ -26,8 +26,7 @@ class Doorbell {
     }
 
     function loop() {
-        echo "Reading input\n";
-        file_put_contents('/tmp/doorbell-daemon', date('c'));
+        echo "Loop started.\n";
         while(true) {
             $this->ringed_status = (int)$this->gpio->input($this->pin);
             if ($this->ringed_status && !$this->ringed_at) {
@@ -77,7 +76,13 @@ class Doorbell {
 
     function saveWebcam() {
         $filename = uniqid() . '.jpg';
-        $image = $this->ipcamera->snapshot();
+        try {
+            $image = $this->ipcamera->snapshot();
+        } catch (Exception $e) {
+            echo 'Error getting image from webcam: ',  $e->getMessage(), "\n";
+            echo 'image dump:';
+            var_dump($image);
+        }
         file_put_contents(__DIR__ . '/../public/webcam/' . $filename, $image);
         return $filename;
     }

@@ -3,20 +3,52 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "03696a74e4a938c656a331fbff1be8bb",
+    "hash": "7f530c023aa4f8f087a716c78b678942",
     "packages": [
+        {
+            "name": "firehed/daemon",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Firehed/php-daemon.git",
+                "reference": "cb4a9dc621ab377efa2bda1d67289cab17749b3d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Firehed/php-daemon/zipball/cb4a9dc621ab377efa2bda1d67289cab17749b3d",
+                "reference": "cb4a9dc621ab377efa2bda1d67289cab17749b3d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcntl": "*",
+                "ext-posix": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Firehed\\ProcessControl\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Turn a command-line script into a daemonized process",
+            "time": "2014-02-10 06:07:04"
+        },
         {
             "name": "kasperh/ipcamera",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kasperhartwich/ipcamera.git",
-                "reference": "3348951545432d0099dfc9d7ea56d978028a4bd7"
+                "reference": "b2b043655695ab0603dc660fca79afac669f9e55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kasperhartwich/ipcamera/zipball/3348951545432d0099dfc9d7ea56d978028a4bd7",
-                "reference": "3348951545432d0099dfc9d7ea56d978028a4bd7",
+                "url": "https://api.github.com/repos/kasperhartwich/ipcamera/zipball/b2b043655695ab0603dc660fca79afac669f9e55",
+                "reference": "b2b043655695ab0603dc660fca79afac669f9e55",
                 "shasum": ""
             },
             "suggest": {
@@ -49,7 +81,7 @@
                 "ipcamera",
                 "wanscam"
             ],
-            "time": "2014-03-08 20:00:18"
+            "time": "2014-03-08 20:15:15"
         },
         {
             "name": "kasperhartwich/cpsms",
@@ -94,6 +126,42 @@
                 "sms"
             ],
             "time": "2014-03-01 21:57:32"
+        },
+        {
+            "name": "kasperhartwich/sonos",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kasperhartwich/sonos.git",
+                "reference": "9fe235e759fc0472dd251380724b44bd650a40c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kasperhartwich/sonos/zipball/9fe235e759fc0472dd251380724b44bd650a40c0",
+                "reference": "9fe235e759fc0472dd251380724b44bd650a40c0",
+                "shasum": ""
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "authors": [
+                {
+                    "name": "Kasper Hartwich",
+                    "email": "kasperhartwich@gmail.com",
+                    "homepage": "http://kasperhartwich.dk",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Control Sonos with php.",
+            "homepage": "http://github.com/kasperhartwich/sonos",
+            "keywords": [
+                "sonos"
+            ],
+            "support": {
+                "source": "https://github.com/kasperhartwich/sonos/tree/master"
+            },
+            "time": "2014-03-09 21:14:05"
         },
         {
             "name": "klein/klein",
@@ -248,7 +316,9 @@
         "ronanguilloux/php-gpio": 20,
         "troelskn/pdoext": 20,
         "kasperhartwich/cpsms": 20,
-        "kasperh/ipcamera": 20
+        "kasperh/ipcamera": 20,
+        "kasperhartwich/sonos": 20,
+        "firehed/daemon": 20
     },
     "platform": [
 

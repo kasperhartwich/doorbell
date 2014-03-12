@@ -6,4 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Firehed\\ProcessControl\\' => array($vendorDir . '/firehed/daemon/src'),
 );

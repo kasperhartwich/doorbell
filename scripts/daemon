@@ -3,8 +3,7 @@
 set_time_limit(0);
 require_once(dirname(__FILE__) . '/../bootstrap.php');
 
-$lasted_run = strtotime(file_get_contents('/tmp/doorbell-daemon'));
-if ((time()-$lasted_run)<70) {echo 'Already running';exit;};
+#Firehed\ProcessControl\Daemon::run();
 
 $doorbell = new Doorbell((int)$GLOBALS['config']['gpio']['pin'], $app->db);
 $doorbell->loop();

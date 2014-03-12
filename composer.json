@@ -4,8 +4,9 @@
         "ronanguilloux/php-gpio": "dev-master",
         "troelskn/pdoext": "dev-master",
         "kasperhartwich/cpsms": "dev-master",
-        "kasperh/ipcamera": "dev-master"
-        "kasperhartwich/sonos": "dev-master"
+        "kasperh/ipcamera": "dev-master",
+        "kasperhartwich/sonos": "dev-master",
+        "firehed/daemon": "dev-master"
     },
     "repositories": [
         {
