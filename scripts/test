@@ -4,5 +4,12 @@ set_time_limit(0);
 require_once(dirname(__FILE__) . '/../bootstrap.php');
 
 $doorbell = new Doorbell((int)$GLOBALS['config']['gpio']['pin'], $app->db);
+
+while (1) {
+	echo '.';
+	sleep(4);
+	$doorbell->playSound($GLOBALS['config']['soundfile']);
+}
+
 $doorbell->test();
 

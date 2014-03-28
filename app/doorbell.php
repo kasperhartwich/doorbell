@@ -28,6 +28,7 @@ class Doorbell {
     function loop() {
         echo "Loop started.\n";
         while(true) {
+            usleep(10000);
             $this->ringed_status = (int)$this->gpio->input($this->pin);
             if ($this->ringed_status && !$this->ringed_at) {
                 $this->ring();
@@ -59,12 +60,18 @@ class Doorbell {
         $ringtime = microtime(true) - $this->ringed_at;
         echo "Det ringede i " . $ringtime . " d. " . date('c', $this->ringed_at) ."\n";
 
-        //Save to database
-        $stmt = $this->db->prepare("INSERT INTO rings (ringed_at, ringtime, image) VALUES (:ringed_at, :ringtime, :image)");
-        $stmt->bindParam(':ringed_at', date('c', $this->ringed_at));
-        $stmt->bindParam(':ringtime', $ringtime);
-        $stmt->bindParam(':image', $this->image);
-        $stmt->execute();
+	$this->logDatabase($this->ringed_at, $ringtime, $this->image);
+    }
+
+    function logDatabase($ringed_at, $ringtime, $image = null) {
+	try {
+            $stmt->bindParam(':ringed_at', date('c', $ringed_at);
+            $stmt->bindParam(':ringtime', $ringtime);
+            $stmt->bindParam(':image', $image);
+            $stmt->execute();
+        } catch (Exception $e) {
+            echo 'Database error: ' . $e->getMessage. "\n";
+        }
     }
 
     function test() {
