@@ -65,7 +65,7 @@ class Doorbell {
 
     function logDatabase($ringed_at, $ringtime, $image = null) {
 	try {
-            $stmt = $this->db->prepare("INSERT INTO rings (ringed_at, ringtime, image) VALUES (:ringed_at, :ringtime, :image)")
+            $stmt = $this->db->prepare("INSERT INTO rings (ringed_at, ringtime, image) VALUES (:ringed_at, :ringtime, :image)");
             $stmt->bindParam(':ringed_at', date('c', $ringed_at));
             $stmt->bindParam(':ringtime', $ringtime);
             $stmt->bindParam(':image', $image);
