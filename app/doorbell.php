@@ -43,12 +43,12 @@ class Doorbell {
 
     function ring() {
         //Play soundfile
-        if ($GLOBALS['config']['soundfile']) { $this->playSound($GLOBALS['config']['soundfile']); }
+        if (isset($GLOBALS['config']['soundfile'])) { $this->playSound($GLOBALS['config']['soundfile']); }
 
         $this->image = $this->saveWebcam();
 
         //SMS - TODO: Only sms if it's >1-2 min since last ring.
-        if ($GLOBALS['config']['sms']['enabled']) {
+        if (isset($GLOBALS['config']['sms']['enabled']) && $GLOBALS['config']['sms']['enabled'] && isset($GLOBALS['config']['sms']['recipients'])) {
             foreach ($GLOBALS['config']['sms']['recipients'] as $recipient) {
                 $this->sms->send("Ring ring! Se " . $GLOBALS['config']['host'] . '/webcam/' . $this->image, $recipient, $sender = $GLOBALS['config']['sms']['sender'] ?: false);
                 echo "SMS sendt til " . $recipient . "\n";
