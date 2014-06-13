@@ -14,4 +14,8 @@ $klein->respond('/rings',function ($request, $response, $service, $app) {
     return $service->render('../views/list.php', array('rings' => $rings, 'pages' => (int)$rings->totalPages(), 'page' => (int)$rings->currentPage()));
 });
 
+$klein->respond('/ok', function ($request, $response, $service, $app) {
+    return $response->code(200)->chunk('ok');
+});
+
 $klein->dispatch();
