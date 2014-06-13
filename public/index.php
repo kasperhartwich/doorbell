@@ -15,11 +15,7 @@ $klein->respond('/rings',function ($request, $response, $service, $app) {
 });
 
 $klein->respond('/ok', function ($request, $response, $service, $app) {
-<<<<<<< HEAD
     return $response->chunk('ok');
-=======
-    return $response->code(200)->chunk('ok');
->>>>>>> 8e7b6123c499feb2c89318b30a8f3faa1047ed5b
 });
 
 $klein->dispatch();
