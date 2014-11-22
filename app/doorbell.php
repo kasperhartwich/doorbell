@@ -18,8 +18,8 @@ class Doorbell {
         $this->db = $db;
         $this->gpio = new GPIO();
         if (isset($GLOBALS['config']['buzzer'])) {
-            $this->buzzer new GPIO();
-            $gpio->setup($GLOBALS['config']['buzzer']['pin'], "out");
+            $this->buzzer = new GPIO();
+            $this->buzzer->setup((int)$GLOBALS['config']['buzzer']['pin'], "out");
         }
         $this->gpio->setup($pin, "in");
         if ($GLOBALS['config']['sms']['enabled']) {
@@ -50,7 +50,7 @@ class Doorbell {
 
         //Buzzer
         if (isset($GLOBALS['config']['buzzer'])) {
-            $gpio->output($GLOBALS['config']['buzzer']['pin'], 1);
+            $this->buzzer->output((int)$GLOBALS['config']['buzzer']['pin'], 1);
         }
 
         //Play soundfile
@@ -70,7 +70,7 @@ class Doorbell {
     function ringed() {
         //Buzzer
         if (isset($GLOBALS['config']['buzzer'])) {
-            $gpio->output($GLOBALS['config']['buzzer']['pin'], 0);
+            $this->buzzer->output((int)$GLOBALS['config']['buzzer']['pin'], 0);
         }
 
         $ringtime = microtime(true) - $this->ringed_at;
