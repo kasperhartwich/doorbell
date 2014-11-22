@@ -1,3 +1,4 @@
 config.ini
 public/webcam/*.jpg
 ._*
+log
