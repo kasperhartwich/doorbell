@@ -7,6 +7,7 @@ class Doorbell {
     private $pin;
     private $db;
     private $ipcamera;
+    private $buzzer;
     private $image;
     private $ringed_status = false;
     private $ringed_at = false;
@@ -16,6 +17,10 @@ class Doorbell {
         $this->pin = $pin;
         $this->db = $db;
         $this->gpio = new GPIO();
+        if (isset($GLOBALS['config']['buzzer'])) {
+            $this->buzzer new GPIO();
+            $gpio->setup($GLOBALS['config']['buzzer']['pin'], "out");
+        }
         $this->gpio->setup($pin, "in");
         if ($GLOBALS['config']['sms']['enabled']) {
             $this->sms = new CPSMS($GLOBALS['config']['sms']['username'], $GLOBALS['config']['sms']['password']);
@@ -42,6 +47,12 @@ class Doorbell {
     }
 
     function ring() {
+
+        //Buzzer
+        if (isset($GLOBALS['config']['buzzer'])) {
+            $gpio->output($GLOBALS['config']['buzzer']['pin'], 1);
+        }
+
         //Play soundfile
         if (isset($GLOBALS['config']['soundfile'])) { $this->playSound($GLOBALS['config']['soundfile']); }
 
@@ -57,10 +68,15 @@ class Doorbell {
     }
 
     function ringed() {
+        //Buzzer
+        if (isset($GLOBALS['config']['buzzer'])) {
+            $gpio->output($GLOBALS['config']['buzzer']['pin'], 0);
+        }
+
         $ringtime = microtime(true) - $this->ringed_at;
         echo "Det ringede i " . $ringtime . " d. " . date('c', $this->ringed_at) ."\n";
 
-	$this->logDatabase($this->ringed_at, $ringtime, $this->image);
+        $this->logDatabase($this->ringed_at, $ringtime, $this->image);
     }
 
     function logDatabase($ringed_at, $ringtime, $image = null) {
