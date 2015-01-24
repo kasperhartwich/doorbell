@@ -48,11 +48,6 @@ class Doorbell {
 
     function ring() {
 
-        //Buzzer
-        if (isset($GLOBALS['config']['buzzer'])) {
-            $this->buzzer->output((int)$GLOBALS['config']['buzzer']['pin'], 1);
-        }
-
         //Play soundfile
         if (isset($GLOBALS['config']['soundfile'])) { $this->playSound($GLOBALS['config']['soundfile']); }
 
@@ -65,6 +60,14 @@ class Doorbell {
                 echo "SMS sendt til " . $recipient . "\n";
             }
         }
+
+        //Buzzer
+        if (isset($GLOBALS['config']['buzzer'])) {
+            $this->buzzer->output((int)$GLOBALS['config']['buzzer']['pin'], 1);
+            sleep(3);
+            $this->buzzer->output((int)$GLOBALS['config']['buzzer']['pin'], 0);
+        }
+
     }
 
     function ringed() {
