@@ -51,6 +51,9 @@ class Doorbell {
         //Play soundfile
         if (isset($GLOBALS['config']['soundfile'])) { $this->playSound($GLOBALS['config']['soundfile']); }
 
+        //IFTTT
+        file_get_contents('https://maker.ifttt.com/trigger/' . $GLOBALS['config']['ifttt']['event'] . '/with/key/' . $GLOBALS['config']['ifttt']['token']);
+
         $this->image = $this->saveWebcam();
 
         //SMS - TODO: Only sms if it's >1-2 min since last ring.
