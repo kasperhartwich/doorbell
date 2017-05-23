@@ -1,9 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "7f530c023aa4f8f087a716c78b678942",
+    "content-hash": "8666ca0cbfc483f9e859a62f4dddea0f",
     "packages": [
         {
             "name": "firehed/daemon",
@@ -11,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Firehed/php-daemon.git",
-                "reference": "cb4a9dc621ab377efa2bda1d67289cab17749b3d"
+                "reference": "7db6ff84af29097f0e4236fda50baf4576561577"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Firehed/php-daemon/zipball/cb4a9dc621ab377efa2bda1d67289cab17749b3d",
-                "reference": "cb4a9dc621ab377efa2bda1d67289cab17749b3d",
+                "url": "https://api.github.com/repos/Firehed/php-daemon/zipball/7db6ff84af29097f0e4236fda50baf4576561577",
+                "reference": "7db6ff84af29097f0e4236fda50baf4576561577",
                 "shasum": ""
             },
             "require": {
@@ -35,20 +36,62 @@
                 "MIT"
             ],
             "description": "Turn a command-line script into a daemonized process",
-            "time": "2014-02-10 06:07:04"
+            "time": "2014-03-26 06:22:36"
         },
         {
-            "name": "kasperh/ipcamera",
+            "name": "kasperhartwich/cpsms",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kasperhartwich/cpsms.git",
+                "reference": "69191e3916ef3d4d78bc92fa6146afb7d97d5927"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kasperhartwich/cpsms/zipball/69191e3916ef3d4d78bc92fa6146afb7d97d5927",
+                "reference": "69191e3916ef3d4d78bc92fa6146afb7d97d5927",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kasper Hartwich",
+                    "email": "kasperhartwich@gmail.com"
+                }
+            ],
+            "description": "Send a sms via smsprovider http://www.cpsms.dk",
+            "homepage": "https://github.com/kasperhartwich/cpsms",
+            "keywords": [
+                "compaya",
+                "cpsms",
+                "sms"
+            ],
+            "time": "2014-11-20 13:18:38"
+        },
+        {
+            "name": "kasperhartwich/ipcamera",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kasperhartwich/ipcamera.git",
-                "reference": "b2b043655695ab0603dc660fca79afac669f9e55"
+                "reference": "7a6bed69ca2cf307aa89da2617cd3492733f1ed8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kasperhartwich/ipcamera/zipball/b2b043655695ab0603dc660fca79afac669f9e55",
-                "reference": "b2b043655695ab0603dc660fca79afac669f9e55",
+                "url": "https://api.github.com/repos/kasperhartwich/ipcamera/zipball/7a6bed69ca2cf307aa89da2617cd3492733f1ed8",
+                "reference": "7a6bed69ca2cf307aa89da2617cd3492733f1ed8",
                 "shasum": ""
             },
             "suggest": {
@@ -81,51 +124,7 @@
                 "ipcamera",
                 "wanscam"
             ],
-            "time": "2014-03-08 20:15:15"
-        },
-        {
-            "name": "kasperhartwich/cpsms",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kasperhartwich/cpsms.git",
-                "reference": "d7d9a72f4fdba9eb9da1fdd32bb324406f4a956a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kasperhartwich/cpsms/zipball/d7d9a72f4fdba9eb9da1fdd32bb324406f4a956a",
-                "reference": "d7d9a72f4fdba9eb9da1fdd32bb324406f4a956a",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "lib/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kasper Hartwich",
-                    "email": "kasperhartwich@gmail.com",
-                    "homepage": "http://kasperhartwich.dk",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Send a sms via smsprovider http://www.cpsms.dk",
-            "homepage": "https://github.com/kasperhartwich/cpsms",
-            "keywords": [
-                "compaya",
-                "cpsms",
-                "sms"
-            ],
-            "time": "2014-03-01 21:57:32"
+            "time": "2017-05-23 18:02:41"
         },
         {
             "name": "kasperhartwich/sonos",
@@ -161,19 +160,19 @@
             "support": {
                 "source": "https://github.com/kasperhartwich/sonos/tree/master"
             },
-            "time": "2014-03-09 21:14:05"
+            "time": "2014-03-09T21:14:05+00:00"
         },
         {
             "name": "klein/klein",
             "version": "v2.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/chriso/klein.php.git",
+                "url": "https://github.com/klein/klein.php.git",
                 "reference": "6e1f228ce82333b437402dafad049713eb3eeac6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chriso/klein.php/zipball/6e1f228ce82333b437402dafad049713eb3eeac6",
+                "url": "https://api.github.com/repos/klein/klein.php/zipball/6e1f228ce82333b437402dafad049713eb3eeac6",
                 "reference": "6e1f228ce82333b437402dafad049713eb3eeac6",
                 "shasum": ""
             },
@@ -215,7 +214,7 @@
                 "routing",
                 "sinatra"
             ],
-            "time": "2013-06-16 23:32:47"
+            "time": "2013-06-16T23:32:47+00:00"
         },
         {
             "name": "ronanguilloux/php-gpio",
@@ -223,12 +222,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ronanguilloux/php-gpio.git",
-                "reference": "2ab29290e0fd45992103062bc949c8e18f622a20"
+                "reference": "b001a47fc82003dc92a96ed7900f65b0eefe8eac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ronanguilloux/php-gpio/zipball/2ab29290e0fd45992103062bc949c8e18f622a20",
-                "reference": "2ab29290e0fd45992103062bc949c8e18f622a20",
+                "url": "https://api.github.com/repos/ronanguilloux/php-gpio/zipball/b001a47fc82003dc92a96ed7900f65b0eefe8eac",
+                "reference": "b001a47fc82003dc92a96ed7900f65b0eefe8eac",
                 "shasum": ""
             },
             "require": {
@@ -252,9 +251,7 @@
             "authors": [
                 {
                     "name": "Ronan Guilloux",
-                    "email": "ronan.guilloux@gmail.com",
-                    "homepage": "http://github.com/ronanguilloux",
-                    "role": "Developer"
+                    "email": "ronan.guilloux@gmail.com"
                 }
             ],
             "description": "GPIO-related utils & toolkit PHP library",
@@ -272,7 +269,7 @@
                 "raspberry pi",
                 "sensors"
             ],
-            "time": "2013-07-24 22:34:06"
+            "time": "2014-12-08 01:15:34"
         },
         {
             "name": "troelskn/pdoext",
@@ -280,12 +277,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/troelskn/pdoext.git",
-                "reference": "e88f3c2d43915de273a56247088610e681957117"
+                "reference": "485616e17f26eed0e816aca96f78a5f10da4f5df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/troelskn/pdoext/zipball/e88f3c2d43915de273a56247088610e681957117",
-                "reference": "e88f3c2d43915de273a56247088610e681957117",
+                "url": "https://api.github.com/repos/troelskn/pdoext/zipball/485616e17f26eed0e816aca96f78a5f10da4f5df",
+                "reference": "485616e17f26eed0e816aca96f78a5f10da4f5df",
                 "shasum": ""
             },
             "type": "library",
@@ -302,28 +299,22 @@
                 "pdo",
                 "pdoext"
             ],
-            "time": "2014-02-14 14:47:52"
+            "time": "2015-01-22 22:34:35"
         }
     ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
-    "minimum-stability": "stable",
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "beta",
     "stability-flags": {
         "ronanguilloux/php-gpio": 20,
         "troelskn/pdoext": 20,
+        "kasperhartwich/ipcamera": 20,
         "kasperhartwich/cpsms": 20,
-        "kasperh/ipcamera": 20,
         "kasperhartwich/sonos": 20,
         "firehed/daemon": 20
     },
-    "platform": [
-
-    ],
-    "platform-dev": [
-
-    ]
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
 }
