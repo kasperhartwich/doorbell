@@ -160,7 +160,7 @@
             "support": {
                 "source": "https://github.com/kasperhartwich/sonos/tree/master"
             },
-            "time": "2014-03-09T21:14:05+00:00"
+            "time": "2014-03-09 21:14:05"
         },
         {
             "name": "klein/klein",

@@ -107,7 +107,7 @@ class Doorbell {
     function saveWebcam() {
         $filename = uniqid() . '.jpg';
         try {
-            $image = $this->ipcamera->snapshot();
+            $image = $this->ipcamera->snapshot('snap.jpeg');
         } catch (Exception $e) {
             echo 'Error getting image from webcam: ',  $e->getMessage(), "\n";
             echo 'image dump:';
